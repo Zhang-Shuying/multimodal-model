@@ -18,9 +18,9 @@ from tensorflow.keras.models import load_model
 
 
 #Import Data
-train = pd.read_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/train.csv')
-test = pd.read_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/test.csv')
-vad = pd.read_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/vad.csv')
+train = pd.read_csv('D:/train.csv')
+test = pd.read_csv('D:/test.csv')
+vad = pd.read_csv('D:/vad.csv')
 
 
 y_train = train[['logPtb']]
@@ -36,7 +36,7 @@ x_vad = vad.iloc[:,6:]
 
 
 #load model
-model = load_model('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/muti-pub1.h5')
+model = load_model('D:/muti-pub1.h5')
 
 
 fit = model.predict(x_train)
@@ -112,12 +112,12 @@ for i, index in enumerate(top_features_indices):
 
 #AD characterization
 import os
-os.chdir('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision')
+os.chdir('D:/')
 
 from AppDomain import NSG, NSGVisualizer
 
-df_train = pd.read_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/train_all-AD.csv')
-df_vad = pd.read_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/vad-AD.csv')
+df_train = pd.read_csv('D:/train_all-AD.csv')
+df_vad = pd.read_csv('D:/vad-AD.csv')
 
         
 df_train.set_index(['species_idx', 'tissue_idx', 'path_idx', 'phase_idx'], inplace=True)
@@ -164,8 +164,8 @@ num_remained_list = []
 
 for P in [0.001,0.01,0.1,1,5,10]:
     for I in [0.3,0.5,0.7,0.9,1,1.2]:
-        df_train = pd.read_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/train_all-AD1.csv')
-        df_vad = pd.read_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/vad_data_filtered.csv')
+        df_train = pd.read_csv('D:/train_all-AD1.csv')
+        df_vad = pd.read_csv('D:/vad_data_filtered.csv')
 
        
         train_CmpdID_list = df_train.CmpdID.values
@@ -235,4 +235,4 @@ all_list = {'P': P_list
 all_list
 all_list_df = pd.DataFrame(all_list)
 
-all_list_df.to_csv('D:/学习文献/课题/pp-lfer/多任务论文/mammal and fish/revision/data/AD_ANN_a_20.csv')
+all_list_df.to_csv('D:/.csv')
