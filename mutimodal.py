@@ -118,7 +118,7 @@ df_train = pd.read_csv('D:/data/train-AD.csv')
 df_vad = pd.read_csv('D:/data/vad-AD.csv')
 
 
-        
+#exclude data with categorical features didn’t exist in the training set       
 df_train.set_index(['species_idx', 'tissue_idx', 'path_idx', 'phase_idx'], inplace=True)
 df_vad.set_index(['species_idx', 'tissue_idx', 'path_idx', 'phase_idx'], inplace=True)
 
